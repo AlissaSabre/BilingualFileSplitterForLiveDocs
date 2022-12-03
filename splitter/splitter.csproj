@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{031EEB81-7D59-4945-9B04-0A492F25E688}</ProjectGuid>
+    <ProjectGuid>{41818D92-2467-4612-B11D-E6B898E78655}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>BilingualFileSplitterForLiveDocs</RootNamespace>
-    <AssemblyName>BilingualFileSplitterForLiveDocs</AssemblyName>
+    <RootNamespace>splitter</RootNamespace>
+    <AssemblyName>splitter</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -48,6 +48,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\disfr\disfr-core\disfr-core.csproj">
+      <Project>{52c27a7f-355e-4bbc-8f0d-546fb11ef689}</Project>
+      <Name>disfr-core</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("BilingualFileSplitterForLiveDocs")]
+[assembly: AssemblyTitle("splitter")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("BilingualFileSplitterForLiveDocs")]
+[assembly: AssemblyProduct("splitter")]
 [assembly: AssemblyCopyright("Copyright ©  2022")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("031eeb81-7d59-4945-9b04-0a492f25e688")]
+[assembly: Guid("41818d92-2467-4612-b11d-e6b898e78655")]
 
 // Version information for an assembly consists of the following four values:
 //
