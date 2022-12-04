@@ -15,13 +15,13 @@ namespace splitter
     {
         public bool Verbose { get; set; }
 
-        /// <summary>Splits a bilingual file into two monolingual XML files.</summary>
+        /// <summary>Splits a bilingual file into a set of monolingual XML files.</summary>
         /// <param name="filename"></param>
         public void Split(string filename)
         {
             var bundle = ReaderManager.Current.Read(filename);
-            var assets = bundle.Assets.ToArray();
-            if (assets.Length == 0)
+            var assets = bundle.Assets as IList<IAsset> ?? bundle.Assets.ToArray();
+            if (assets.Count == 0)
             {
                 throw new IOException($"Contains no usable contents: {filename}");
             }
