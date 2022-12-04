@@ -39,6 +39,8 @@ namespace splitter
 
         private static readonly XName XmlSpace = XNamespace.Xml + "space";
 
+        private static readonly XName Id = "id";
+
         private static readonly XName File = "file";
 
         private static readonly XName Name = "name";
@@ -58,10 +60,16 @@ namespace splitter
             new XElement(File,
                 new XAttribute(XmlLang, language),
                 new XAttribute(Name, basename),
+                "\n",
                 asset.TransPairs.Where(IsSegment).Select(pair =>
-                    new XElement(Seg,
-                        new XAttribute(XmlSpace, "preserve"),
-                        Convert(inline_selector(pair)))))
+                    new object[]
+                    {
+                        new XElement(Seg,
+                            new XAttribute(Id, pair.Id),
+                            new XAttribute(XmlSpace, "preserve"),
+                            Convert(inline_selector(pair))),
+                        "\n"
+                    }))
                 .Save($"{basename} ({language}).xml", SaveOptions.DisableFormatting);
         }
 
