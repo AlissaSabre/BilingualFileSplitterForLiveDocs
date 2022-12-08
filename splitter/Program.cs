@@ -25,6 +25,17 @@ namespace splitter
                         case "-v":
                             splitter.Verbose = true;
                             break;
+                        case "-v-":
+                            splitter.Verbose = false;
+                            break;
+
+                        case "-w":
+                            splitter.TweaksWhiteTags = true;
+                            break;
+                        case "-w-":
+                            splitter.TweaksWhiteTags = false;
+                            break;
+
                         default:
                             Console.Error.WriteLine($"Unknown option {arg} ignored.");
                             break;

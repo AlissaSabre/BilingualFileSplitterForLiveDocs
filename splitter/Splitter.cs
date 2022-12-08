@@ -15,6 +15,8 @@ namespace splitter
     {
         public bool Verbose { get; set; }
 
+        public bool TweaksWhiteTags { get; set; }
+
         /// <summary>Splits a bilingual file into a set of monolingual XML files.</summary>
         /// <param name="filename"></param>
         public void Split(string filename)
@@ -93,8 +95,12 @@ namespace splitter
                         case InlineText text:
                             yield return new XText(text.ToString());
                             break;
-                        case InlineTag _:
+                        case InlineTag tag:
                             yield return new XElement(Tag);
+                            if (TweaksWhiteTags && IsWhiteTag(tag))
+                            {
+                                yield return new XText(" ");
+                            }
                             break;
 #if DEBUG
                         default:
@@ -105,6 +111,13 @@ namespace splitter
                     }
                 }
             }
+        }
+
+        private static bool IsWhiteTag(InlineTag tag)
+        {
+            var code = tag.Code;
+            return (code.Length == 1)
+                && (char.IsControl(code[0]) || char.IsWhiteSpace(code[0]));
         }
     }
 }
